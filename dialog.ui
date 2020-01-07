@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1200</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(20,20,20);</string>
+  </property>
+  <widget class="QPushButton" name="detectButton">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>470</y>
+     <width>341</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+    background-color: transparent;
+    border-width: 4px;
+    border-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));;
+    border-style: outset;
+    border-radius: 40px;
+    color: white;
+    font: bold 24px;
+    border-style: solid;
+    
+}
+
+QPushButton:hover{  
+     border-width: 8px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 		rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));
+	color: rgb(20,20,20);
+
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Wykryj kolor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clearLogsButton">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>580</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+color:white;
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="text">
+    <string>Wyczyść logi</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="autoRepeat">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEditLogs">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>610</y>
+     <width>801</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Helvetica Neue</family>
+     <pointsize>12</pointsize>
+     <italic>true</italic>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+color:white;
+</string>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelColor">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>150</y>
+     <width>961</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 4px solid qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));
+border-radius: 60px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="connectButton">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>460</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+    border-width: 2px;
+    border-color: white;
+    border-style: outset;
+    border-radius: 20px;
+    color: white;
+    font: bold 14px;
+    border-style: solid;
+    
+}
+
+QPushButton:hover{  
+	background-color: white;
+	color: green;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Połącz</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="disconnectButton">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>460</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+    border-width: 2px;
+    border-color: white;
+    border-style: outset;
+    border-radius: 20px;
+    color: white;
+    font: bold 14px;
+    border-style: solid;
+    
+}
+
+QPushButton:hover{  
+	background-color: white;
+	color: red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Rozłącz</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="whiteButton">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>550</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+    border-width: 2px;
+    border-color: white;
+    border-style: outset;
+    border-radius: 15px;
+    color: white;
+    font: bold 14px;
+    border-style: solid;
+    
+}
+
+QPushButton:hover{  
+	background-color: white;
+	color: rgb(20,20,20);
+}</string>
+   </property>
+   <property name="text">
+    <string>Biały</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="blackButton">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>550</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+    border-width: 2px;
+    border-color: white;
+    border-style: outset;
+    border-radius: 15px;
+    color: white;
+    font: bold 14px;
+    border-style: solid;
+    
+}
+
+QPushButton:hover{  
+	background-color: white;
+	color: rgb(20,20,20);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Czarny</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>530</y>
+     <width>51</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));
+</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>600</y>
+     <width>941</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="kalibracja">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>523</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Kalibracja</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>530</y>
+     <width>51</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="leftPanel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-5</y>
+     <width>261</width>
+     <height>711</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nameLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>841</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>96</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:transparent;
+color:white;</string>
+   </property>
+   <property name="text">
+    <string>RGB DETECTOR</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="polaczenie">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>433</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Połączenie</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>440</y>
+     <width>51</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_5">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>440</y>
+     <width>51</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>450</y>
+     <width>151</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Ciągłe wykrywanie</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_6">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>440</y>
+     <width>51</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tryb">
+   <property name="geometry">
+    <rect>
+     <x>1030</x>
+     <y>433</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Tryb</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line_7">
+   <property name="geometry">
+    <rect>
+     <x>980</x>
+     <y>440</y>
+     <width>51</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(151, 21, 255, 255), stop:1 rgba(118, 85, 112, 255));</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>480</y>
+     <width>42</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>25</number>
+   </property>
+   <property name="maximum">
+    <number>10000</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>485</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Odstęp czasu [ms]</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="stopButton">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>515</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{ 
+    border-width: 2px;
+    border-color: white;
+    border-style: outset;
+    border-radius: 15px;
+    color: white;
+    font: bold 14px;
+    border-style: solid;
+    
+}
+
+QPushButton:hover{  
+	background-color: white;
+	color: red;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Stop</string>
+   </property>
+  </widget>
+  <zorder>labelColor</zorder>
+  <zorder>detectButton</zorder>
+  <zorder>clearLogsButton</zorder>
+  <zorder>textEditLogs</zorder>
+  <zorder>connectButton</zorder>
+  <zorder>disconnectButton</zorder>
+  <zorder>whiteButton</zorder>
+  <zorder>blackButton</zorder>
+  <zorder>line</zorder>
+  <zorder>line_2</zorder>
+  <zorder>kalibracja</zorder>
+  <zorder>line_4</zorder>
+  <zorder>leftPanel</zorder>
+  <zorder>nameLabel</zorder>
+  <zorder>polaczenie</zorder>
+  <zorder>line_3</zorder>
+  <zorder>line_5</zorder>
+  <zorder>checkBox</zorder>
+  <zorder>line_6</zorder>
+  <zorder>tryb</zorder>
+  <zorder>line_7</zorder>
+  <zorder>spinBox</zorder>
+  <zorder>label</zorder>
+  <zorder>stopButton</zorder>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
